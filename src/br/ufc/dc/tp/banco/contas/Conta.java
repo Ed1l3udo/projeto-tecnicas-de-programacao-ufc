@@ -1,11 +1,10 @@
-package running_example;
+package br.ufc.dc.tp.banco.contas;
 
 public class Conta {
 	private String numero;
 	private double saldo;
 	
 	public Conta(String numero) {
-		
 		this.numero = numero;
 		saldo = 0;
 	}

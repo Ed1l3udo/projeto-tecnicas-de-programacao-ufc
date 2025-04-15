@@ -1,15 +1,13 @@
-package running_example;
+package br.ufc.dc.tp.banco;
+import br.ufc.dc.tp.banco.contas.Conta;
+import java.util.Vector;
 
-public class Banco {
-	private Conta[] contas;
+public class BancoVector {
+	private Vector<Conta> contas = new Vector<Conta>();
 	private int indice = 0;
 	
-	public Banco() {
-		contas = new Conta[100];
-	}
-	
 	public void cadastrar(Conta conta) {
-		contas[indice] = conta;
+		contas.add(conta);
 		indice++;
 	}
 	
@@ -17,14 +15,14 @@ public class Banco {
 		int i = 0;
 		boolean encontrou = false;
 		while(!encontrou && i < indice) {
-			if(contas[i].getNumero() == numero) {
+			if(contas.get(i).getNumero() == numero) {
 				encontrou = true;
 			}else {
 				i++;
 			}
 		}
 		if(encontrou) {
-			return contas[i];
+			return contas.get(i);
 		}else {
 			return null;
 		}
@@ -72,4 +70,6 @@ public class Banco {
 			contaDestino.creditar(valor);
 		}
 	}
+	
+	
 }

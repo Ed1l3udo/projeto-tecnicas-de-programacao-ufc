@@ -1,4 +1,6 @@
-package running_example;
+package bankSys;
+
+import br.ufc.dc.tp.banco.contas.Conta;
 
 public class Main {
 	public static void main(String args[]) {
