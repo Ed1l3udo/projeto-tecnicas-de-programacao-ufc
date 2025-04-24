@@ -1,6 +1,6 @@
 package br.ufc.dc.tp.banco;
-
 import br.ufc.dc.tp.banco.contas.Conta;
+import br.ufc.dc.tp.banco.contas.ContaPoupanca;
 
 public class BancoArray {
 	private Conta[] contas;
@@ -9,6 +9,7 @@ public class BancoArray {
 	public BancoArray() {
 		contas = new Conta[100];
 	}
+	
 	
 	public void cadastrar(Conta conta) {
 		contas[indice] = conta;
@@ -31,6 +32,7 @@ public class BancoArray {
 			return null;
 		}
 	}
+	
 	
 	public void creditar(String numero, double valor) {
 		Conta conta = procurar(numero);
@@ -72,6 +74,15 @@ public class BancoArray {
 		if(contaDestino != null && contaOrigem != null) {
 			contaOrigem.debitar(valor);
 			contaDestino.creditar(valor);
+		}
+	}
+	
+	public void renderJuros(String numero, double taxa) {
+		ContaPoupanca conta = (ContaPoupanca) procurar(numero);
+		if(conta == null) {
+			System.out.println("Conta inexistente");
+		}else {
+			conta.renderJuros(taxa);
 		}
 	}
 }

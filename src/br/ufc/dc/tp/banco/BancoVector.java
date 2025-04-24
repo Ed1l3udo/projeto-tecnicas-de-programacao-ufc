@@ -1,15 +1,20 @@
 package br.ufc.dc.tp.banco;
-import br.ufc.dc.tp.banco.contas.Conta;
+import br.ufc.dc.tp.banco.contas.*;
+
+
 import java.util.Vector;
 
 public class BancoVector {
 	private Vector<Conta> contas = new Vector<Conta>();
 	private int indice = 0;
+
 	
 	public void cadastrar(Conta conta) {
 		contas.add(conta);
 		indice++;
 	}
+	
+	
 	
 	private Conta procurar(String numero) {
 		int i = 0;
@@ -71,5 +76,14 @@ public class BancoVector {
 		}
 	}
 	
+
+	public void renderJuros(String numero, double taxa) {
+		ContaPoupanca conta = (ContaPoupanca) procurar(numero);
+		if(conta == null) {
+			System.out.println("Conta inexistente");
+		}else {
+			conta.renderJuros(taxa);
+		}
+	}
 	
 }
